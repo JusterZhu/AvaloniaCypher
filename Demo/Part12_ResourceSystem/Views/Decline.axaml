@@ -1,0 +1,59 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Part12_ResourceSystem.Views.Decline">
+    <StackPanel>
+        <Button
+            FontSize="{StaticResource btnfs}"
+            FontWeight="{StaticResource btnfw}"
+            Foreground="{StaticResource btnfg}"
+            Background="{StaticResource btnbg}"
+            Content="Button" />
+    </StackPanel>
+    <!-- Decline Resources -->
+    <UserControl.Resources>
+        <x:Double x:Key="btnfs">50</x:Double>
+        <FontWeight x:Key="btnfw">Bold</FontWeight>
+        <SolidColorBrush x:Key="btnfg" Color="Blue" />
+        <SolidColorBrush x:Key="btnbg" Color="Red" />
+    </UserControl.Resources>
+
+    <!-- Include Resources -->
+    <!--<UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Resources/DeclineResources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>-->
+
+    <!-- Wrong Mixing of Resources and ResourceDictionary -->
+    <!--<UserControl.Resources>
+        <x:Double x:Key="btnfs">50</x:Double>
+        <FontWeight x:Key="btnfw">Bold</FontWeight>
+        <SolidColorBrush x:Key="btnfg" Color="Blue" />
+        <SolidColorBrush x:Key="btnbg" Color="Red" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Resources/DeclineResources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>-->
+
+    <!-- Correct Mixing of Resources and ResourceDictionary -->
+
+    <!--<UserControl.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="btnfs">50</x:Double>
+            <FontWeight x:Key="btnfw">Bold</FontWeight>
+            <SolidColorBrush x:Key="btnfg" Color="Blue" />
+            <SolidColorBrush x:Key="btnbg" Color="Red" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Resources/DeclineResources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>-->
+
+</UserControl>

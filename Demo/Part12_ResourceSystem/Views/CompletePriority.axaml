@@ -1,0 +1,86 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Part12_ResourceSystem.Views.CompletePriority">
+    <StackPanel>
+        <Button
+            FontSize="50"
+            FontWeight="Bold"
+            Content="{DynamicResource btnc}">
+            <Button.Resources>
+                <ResourceDictionary>
+                    <!-- 1 -->
+                    <x:String x:Key="btnc">ButtonResource</x:String>
+                    <ResourceDictionary.ThemeDictionaries>
+                        <ResourceDictionary x:Key="Default">
+                            <!-- 3 -->
+                            <x:String x:Key="btnc">ButtonDefaultTD</x:String>
+                        </ResourceDictionary>
+                        <ResourceDictionary x:Key="Light">
+                            <!-- 2 -->
+                            <x:String x:Key="btnc">ButtonLightTD</x:String>
+                        </ResourceDictionary>
+                        <ResourceDictionary x:Key="Dark">
+                            <!-- 2 -->
+                            <x:String x:Key="btnc">ButtonDarkTD</x:String>
+                        </ResourceDictionary>
+                    </ResourceDictionary.ThemeDictionaries>
+                    <ResourceDictionary.MergedDictionaries>
+                        <!-- 7 -->
+                        <ResourceInclude Source="/Resources/Resources1.axaml" />
+                        <!-- 6 -->
+                        <ResourceInclude Source="/Resources/Resources2.axaml" />
+                        <ResourceDictionary>
+                            <!-- 5 -->
+                            <x:String x:Key="btnc">ButtonMD1</x:String>
+                        </ResourceDictionary>
+                        <ResourceDictionary>
+                            <!-- 4 -->
+                            <x:String x:Key="btnc">ButtonMD2</x:String>
+                        </ResourceDictionary>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Button.Resources>
+            <Button.Styles>
+                <!-- 14 -->
+                <StyleInclude Source="/Resources/StylesResources1.axaml" />
+                <!-- 13 -->
+                <StyleInclude Source="/Resources/StylesResources2.axaml" />
+                <Style>
+                    <Style.Resources>
+                        <ResourceDictionary>
+                            <!-- 8 -->
+                            <x:String x:Key="btnc">ButtonStyleResource</x:String>
+                            <ResourceDictionary.ThemeDictionaries>
+                                <ResourceDictionary x:Key="Default">
+                                    <!-- 10 -->
+                                    <x:String x:Key="btnc">ButtonStyleDefaultTD</x:String>
+                                </ResourceDictionary>
+                                <ResourceDictionary x:Key="Light">
+                                    <!-- 9 -->
+                                    <x:String x:Key="btnc">ButtonStyleLightTD</x:String>
+                                </ResourceDictionary>
+                                <ResourceDictionary x:Key="Dark">
+                                    <!-- 9 -->
+                                    <x:String x:Key="btnc">ButtonStyleDarkTD</x:String>
+                                </ResourceDictionary>
+                            </ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary>
+                                    <!-- 12 -->
+                                    <x:String x:Key="btnc">ButtonStyleMergedDictionaries1</x:String>
+                                </ResourceDictionary>
+                                <ResourceDictionary>
+                                    <!-- 11 -->
+                                    <x:String x:Key="btnc">ButtonStyleMergedDictionaries2</x:String>
+                                </ResourceDictionary>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </Style.Resources>
+                </Style>
+            </Button.Styles>
+        </Button>
+    </StackPanel>
+</UserControl>

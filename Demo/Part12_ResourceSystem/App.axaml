@@ -1,0 +1,23 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Part12_ResourceSystem.App"
+             xmlns:local="using:Part12_ResourceSystem"
+             RequestedThemeVariant="Dark">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Resources>
+        <x:String x:Key="btnc">AppResource</x:String>
+    </Application.Resources>
+    <Application.Styles>
+        <Style>
+            <Style.Resources>
+                <x:String x:Key="btnc">AppStyleResource</x:String>
+            </Style.Resources>
+        </Style>
+        <FluentTheme />
+    </Application.Styles>
+</Application>

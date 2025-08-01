@@ -1,0 +1,88 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Part12_ResourceSystem.Views.MDPriority">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <x:String x:Key="btnc">UserControlResource</x:String>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Resources/Resources1.axaml" />
+                <ResourceInclude Source="/Resources/Resources2.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style>
+            <Style.Resources>
+                <ResourceDictionary>
+                    <x:String x:Key="btnc">UserControlStyleResource</x:String>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceInclude Source="/Resources/Resources1.axaml" />
+                        <ResourceInclude Source="/Resources/Resources2.axaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Style.Resources>
+        </Style>
+    </UserControl.Styles>
+    <StackPanel>
+        <StackPanel.Resources>
+            <ResourceDictionary>
+                <x:String x:Key="btnc">StackPanelResource</x:String>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceInclude Source="/Resources/Resources1.axaml" />
+                    <ResourceInclude Source="/Resources/Resources2.axaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </StackPanel.Resources>
+        <StackPanel.Styles>
+            <Style>
+                <Style.Resources>
+                    <ResourceDictionary>
+                        <x:String x:Key="btnc">StackPanelStyleResource</x:String>
+                        <ResourceDictionary.MergedDictionaries>
+                            <ResourceInclude Source="/Resources/Resources1.axaml" />
+                            <ResourceInclude Source="/Resources/Resources2.axaml" />
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </Style.Resources>
+            </Style>
+        </StackPanel.Styles>
+        <Button
+            FontSize="50"
+            FontWeight="Bold"
+            Content="{DynamicResource btnc}">
+            <Button.Resources>
+                <ResourceDictionary>
+                    <x:String x:Key="btnc">ButtonResource</x:String>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary>
+                            <x:String x:Key="btnc">ButtonMD1</x:String>
+                        </ResourceDictionary>
+                        <ResourceDictionary>
+                            <x:String x:Key="btnc">ButtonMD2</x:String>
+                        </ResourceDictionary>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Button.Resources>
+            <Button.Styles>
+                <Style>
+                    <Style.Resources>
+                        <ResourceDictionary>
+                            <x:String x:Key="btnc">ButtonStyleResource</x:String>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary>
+                                    <x:String x:Key="btnc">ButtonStyleMD1</x:String>
+                                </ResourceDictionary>
+                                <ResourceDictionary>
+                                    <x:String x:Key="btnc">ButtonStyleMD2</x:String>
+                                </ResourceDictionary>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </Style.Resources>
+                </Style>
+            </Button.Styles>
+        </Button>
+    </StackPanel>
+</UserControl>
