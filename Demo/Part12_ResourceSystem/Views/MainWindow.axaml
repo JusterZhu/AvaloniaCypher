@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Part12_ResourceSystem.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Part12_ResourceSystem.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Part12_ResourceSystem.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Part12_ResourceSystem">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <TabControl>
+        <TabItem Header="Decline">
+            <views:Decline />
+        </TabItem>
+        <TabItem Header="Priority">
+            <views:Priority />
+        </TabItem>
+        <TabItem Header="Merged Priority">
+            <views:MDPriority />
+        </TabItem>
+        <TabItem Header="Complete Priority">
+            <views:CompletePriority />
+        </TabItem>
+    </TabControl>
+
+</Window>
