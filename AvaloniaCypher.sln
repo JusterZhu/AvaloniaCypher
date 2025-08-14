@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo\Part11_Library", "Demo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo\Part12_ResourceSystem", "Demo\Part12_ResourceSystem\Part12_ResourceSystem.csproj", "{050F79E3-5009-4E62-B6D9-3647EE67F65F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo\Part13_StyleSystem", "Demo\Part13_StyleSystem\Part13_StyleSystem.csproj", "{3E5954FD-FB37-4407-ACF0-0F0D038EA4D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{050F79E3-5009-4E62-B6D9-3647EE67F65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{050F79E3-5009-4E62-B6D9-3647EE67F65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{050F79E3-5009-4E62-B6D9-3647EE67F65F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E5954FD-FB37-4407-ACF0-0F0D038EA4D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E5954FD-FB37-4407-ACF0-0F0D038EA4D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E5954FD-FB37-4407-ACF0-0F0D038EA4D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E5954FD-FB37-4407-ACF0-0F0D038EA4D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

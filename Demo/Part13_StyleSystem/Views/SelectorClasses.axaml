@@ -1,0 +1,30 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StyleSystem.Views.SelectorClasses">
+    <UserControl.Styles>
+        <Style Selector="Button.Large">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+        <Style Selector="Button.Bold">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style Selector="Button.Italic">
+            <Setter Property="FontStyle" Value="Italic" />
+        </Style>
+        <Style Selector="Button.Bold.Italic">
+            <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel>
+        <Button Classes="Large" Content="Button" />
+        <Button Classes="Bold" Content="Button" />
+        <Button Classes="Italic" Content="Button" />
+        <Button Classes="Large Italic" Content="Button" />
+        <Button Classes="Bold Italic" Content="Button" />
+        <Button Classes="Large Italic Bold" Content="Button" />
+        <Button Classes="large" Content="Button" />
+    </StackPanel>
+</UserControl>

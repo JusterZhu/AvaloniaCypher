@@ -1,0 +1,85 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ava="using:Avalonia.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StyleSystem.Views.Selector">
+    <StackPanel>
+        <Button Content="Button" />
+        <Button Content="Button" />
+        <Button Name="NamedButton" Content="NamedButton" />
+        <Button Classes="ClassesButton" Content="ClassesButton" />
+        <Button Classes="ClassesButton" Content="ClassesButton" />
+        <WrapPanel Orientation="Vertical">
+            <DropDownButton Content="DropDownButton" />
+            <DropDownButton Content="DropDownButton" />
+            <Button Content="Button" />
+            <Button Content="Button" />
+            <TextBlock Text="TextBlock" />
+            <TextBlock Text="TextBlock" />
+            <Button Content="Button" />
+            <Button Content="Button" />
+        </WrapPanel>
+    </StackPanel>
+    <UserControl.Styles>
+        <!-- <Style Selector="Button"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="ava|Button"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector=":is(Button)"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="Button#NamedButton"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="Button.ClassesButton"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="TextBlock:pointerover"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="Button[FontWeight=Normal]"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="Button[(Button.FontWeight)=Normal]"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="StackPanel > Button"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="StackPanel Button"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="Button:not(#NamedButton)"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="TextBlock, Button"> -->
+        <!--     <Setter Property="Border.Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="StackPanel"> -->
+        <!--     <Style Selector="^ > Button"> -->
+        <!--         <Setter Property="Background" Value="Red" /> -->
+        <!--     </Style> -->
+        <!--     <Style Selector="^ DropDownButton"> -->
+        <!--         <Setter Property="Background" Value="Red" /> -->
+        <!--     </Style> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="Button /template/ ContentPresenter#PART_ContentPresenter"> -->
+        <!--     <Setter Property="Foreground" Value="Red" /> -->
+        <!-- </Style> -->
+
+        <!-- <Style Selector="Button:nth-child(odd)"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="Button:nth-last-child(even)"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+
+        <!-- <Style Selector="Button:not(#NamedButton, .ClassesButton)"> -->
+        <!--     <Setter Property="Background" Value="Red" /> -->
+        <!-- </Style> -->
+    </UserControl.Styles>
+</UserControl>
