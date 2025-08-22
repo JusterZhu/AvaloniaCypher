@@ -1,0 +1,46 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StyleSystem.Views.PrioritySelector">
+    <StackPanel>
+        <Button Name="NamedButton" Classes="ClassesButton" />
+        <Button Classes="ClassesButton" />
+        <Button Classes="ClassesButton" />
+        <Button Classes="ClassesButton" Content="LocalValueButton" />
+    </StackPanel>
+
+    <UserControl.Styles>
+        <Style Selector="Button#NamedButton.ClassesButton">
+            <Setter Property="Content" Value="NamedClassesButton" />
+        </Style>
+        <Style Selector="Button.ClassesButton#NamedButton">
+            <Setter Property="Content" Value="ClassesNamedButton" />
+        </Style>
+        <Style Selector="Button.ClassesButton">
+            <Setter Property="Content" Value="ClassesButton" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Content" Value="NormalButton" />
+        </Style>
+        <Style Selector="Button#NamedButton">
+            <Setter Property="Content" Value="NamedButton" />
+        </Style>
+    </UserControl.Styles>
+
+    <!-- <UserControl.Styles> -->
+    <!--     <Style Selector="Button.ClassesButton:focus"> -->
+    <!--         <Setter Property="Content" Value="ClassesFocusButton" /> -->
+    <!--     </Style> -->
+    <!--     <Style Selector="Button:focus.ClassesButton"> -->
+    <!--         <Setter Property="Content" Value="FocusClassesButton" /> -->
+    <!--     </Style> -->
+    <!--     <Style Selector="Button.ClassesButton"> -->
+    <!--         <Setter Property="Content" Value="ClassesButton" /> -->
+    <!--     </Style> -->
+    <!--     <Style Selector="Button:focus"> -->
+    <!--         <Setter Property="Content" Value="FocusButton" /> -->
+    <!--     </Style> -->
+    <!-- </UserControl.Styles> -->
+</UserControl>

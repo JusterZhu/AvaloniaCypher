@@ -1,0 +1,37 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StyleSystem.Views.PriorityBasic">
+    <UserControl.Styles>
+        <Style Selector="Button">
+            <Setter Property="Content" Value="UserControlStyle" />
+            <Setter Property="Background" Value="Red" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel>
+        <StackPanel>
+            <StackPanel.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Content" Value="StackPanelStyle" />
+                </Style>
+            </StackPanel.Styles>
+            <Button>
+                <Button.Styles>
+                    <StyleInclude Source="/Styles/StyleFile.axaml" />
+                    <Style Selector="Button">
+                        <Setter Property="Content" Value="ButtonStyle1" />
+                    </Style>
+                    <Style Selector="Button">
+                        <Setter Property="Content" Value="ButtonStyle2" />
+                    </Style>
+                </Button.Styles>
+            </Button>
+            <Button />
+            <Button />
+        </StackPanel>
+        <Button />
+        <Button />
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,34 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="StyleSystem.Views.SelectorPseudoClasses">
+    <UserControl.Styles>
+        <Style Selector="Button">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Content" Value="Button" />
+        </Style>
+        <!-- InputElement -->
+        <Style Selector="Button:disabled">
+            <Setter Property="Content" Value="Disabled" />
+        </Style>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Content" Value="Pointerover" />
+        </Style>
+        <Style Selector="Button:focus">
+            <Setter Property="Content" Value="Focus" />
+        </Style>
+        <Style Selector="Button:focus-visible" />
+        <Style Selector="Button:focus-within" />
+        <!-- Button -->
+        <Style Selector="Button:pressed">
+            <Setter Property="Content" Value="Pressed" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel>
+        <Button IsEnabled="False" />
+        <Button />
+        <Button />
+    </StackPanel>
+</UserControl>
