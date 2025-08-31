@@ -1,0 +1,108 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="200"
+             x:Class="Part14_ControlTheme.Views.Decline">
+    <UserControl.Resources>
+        <ControlTheme x:Key="EllipseButton" TargetType="Button">
+            <Setter Property="Padding" Value="12 8" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="999" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="Gray" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="DarkGray" />
+            </Style>
+        </ControlTheme>
+
+        <ControlTheme x:Key="RoundRectButton" TargetType="Button">
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="3" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="Gray" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="DarkGray" />
+            </Style>
+        </ControlTheme>
+
+        <!--<ControlTheme
+            x:Key="RoundRectButton"
+            BasedOn="{StaticResource EllipseButton}"
+            TargetType="Button">
+            <Setter Property="BackgroundSizing" Value="CenterBorder" />
+            <Setter Property="CornerRadius" Value="3" />
+
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="FontWeight" Value="Normal" />
+        </ControlTheme>-->
+
+        <!--<ControlTheme
+                x:Key="{x:Type Button}"
+                BasedOn="{StaticResource EllipseButton}"
+                TargetType="Button" />-->
+        <!-- <StaticResource x:Key="{x:Type Button}" ResourceKey="EllipseButton" /> -->
+    </UserControl.Resources>
+
+    <!--
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Resources/ControlThemes.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    -->
+
+    <StackPanel>
+        <Button Theme="{StaticResource EllipseButton}" Content="Ellipse" />
+        <Button Theme="{StaticResource RoundRectButton}" Content="RoundRect" />
+        <Button Content="Default" />
+        <Button Theme="{StaticResource {x:Type Button}}" Content="Default" />
+    </StackPanel>
+</UserControl>
