@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avaloniaApplication2="clr-namespace:AvaloniaApplication2"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication2.MainWindow"
+        Title="AvaloniaApplication2"
+        x:DataType="avaloniaApplication2:Bag">
+       <StackPanel>
+           <ListBox ItemsSource="{Binding Books}">
+               <ListBox.ItemTemplate>
+                   <DataTemplate>
+                       <StackPanel>
+                           <TextBlock Text="{Binding Title}"></TextBlock>
+                           <TextBlock Text="{Binding Author}"></TextBlock>
+                       </StackPanel>
+                   </DataTemplate>
+               </ListBox.ItemTemplate>
+           </ListBox>
+           
+           <TreeView ItemsSource="{Binding Books}">
+               <TreeView.ItemTemplate>
+                   <TreeDataTemplate ItemsSource="{Binding Children}">
+                       <StackPanel>
+                           <TextBlock Text="{Binding Title}"></TextBlock>
+                           <TextBlock Text="{Binding Author}"></TextBlock>
+                       </StackPanel>
+                   </TreeDataTemplate>
+               </TreeView.ItemTemplate>
+           </TreeView>
+           
+           <DataGrid ItemsSource="{Binding Books}">
+               <DataGrid.Columns>
+                   <DataGridTextColumn Header="标题" Binding="{Binding Title}"/>
+                   <DataGridTextColumn Header="作者" Binding="{Binding Author}"/>
+               </DataGrid.Columns>
+           </DataGrid>
+       </StackPanel>
+</Window>
