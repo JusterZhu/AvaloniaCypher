@@ -14,12 +14,15 @@
                        <StackPanel>
                            <TextBlock Text="{Binding Title}"></TextBlock>
                            <TextBlock Text="{Binding Author}"></TextBlock>
+                           <Button Content="取出" Width="120" Height="25" 
+                                   Command="{Binding  $parent[ListBox].((avaloniaApplication2:Bag)DataContext).GetBookCommand}"
+                                   CommandParameter="{Binding .}"/>
                        </StackPanel>
                    </DataTemplate>
                </ListBox.ItemTemplate>
            </ListBox>
            
-           <TreeView ItemsSource="{Binding Books}">
+           <!--<TreeView ItemsSource="{Binding Books}">
                <TreeView.ItemTemplate>
                    <TreeDataTemplate ItemsSource="{Binding Children}">
                        <StackPanel>
@@ -35,6 +38,17 @@
                    <DataGridTextColumn Header="标题" Binding="{Binding Title}"/>
                    <DataGridTextColumn Header="作者" Binding="{Binding Author}"/>
                </DataGrid.Columns>
-           </DataGrid>
+           </DataGrid>-->
        </StackPanel>
+       
+       <!--<StackPanel>
+           <TextBox x:Name="MyTextBox"></TextBox>
+           <TextBlock Text="{Binding Path=Text , ElementName=MyTextBox}"/>
+           <Rectangle Width="{Binding Path=Text , ElementName=MyTextBox}" 
+                      Height="{Binding Path=Text , ElementName=MyTextBox}" Fill="Crimson"/>
+           <TextBlock Text="{Binding Price, StringFormat='价格{0:C2}'}"></TextBlock>
+           <TextBlock Text="{Binding CurrentDate, StringFormat='日期{0:yyyy-MM-dd}'}"/>
+           
+           
+       </StackPanel>-->
 </Window>

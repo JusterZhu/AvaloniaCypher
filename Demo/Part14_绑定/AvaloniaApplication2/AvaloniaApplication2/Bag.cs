@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AvaloniaApplication2;
 
@@ -28,12 +29,12 @@ public class Bag : ObservableObject
 {
     //public ObservableCollection<string> Books { get; set; } = new ObservableCollection<string>();
 
-    public double Price { get; set; } = 10.25;
+    public double Price { get; set; } = 12.12;
     
-    public DateTime Current { get; set; } = DateTime.Now;
-
-    public bool IsEnabled { get; set; } = true;
-
+    public DateTime CurrentDate { get; set; } = DateTime.Now;
+    
+    public RelayCommand<object> GetBookCommand { get; set; }
+    
     public ObservableCollection<Book> Books { get; set; } = new ObservableCollection<Book>();
 
     private Book _selectedBook;
@@ -59,5 +60,12 @@ public class Bag : ObservableObject
         });
         Books.Add(new Book("数学书", "李四"));
         Books.Add(new Book("英语书", "李雷"));
+
+        GetBookCommand = new RelayCommand<object>(GetBook);
+    }
+
+    private void GetBook(object? obj)
+    {
+        
     }
 }
