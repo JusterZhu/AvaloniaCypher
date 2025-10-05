@@ -8,7 +8,7 @@
         Title="AvaloniaApplication2"
         x:DataType="avaloniaApplication2:Bag">
        <StackPanel>
-           <ListBox ItemsSource="{Binding Books}">
+           <!--<ListBox ItemsSource="{Binding Books}">
                <ListBox.ItemTemplate>
                    <DataTemplate>
                        <StackPanel>
@@ -20,7 +20,7 @@
                        </StackPanel>
                    </DataTemplate>
                </ListBox.ItemTemplate>
-           </ListBox>
+           </ListBox>-->
            
            <!--<TreeView ItemsSource="{Binding Books}">
                <TreeView.ItemTemplate>
@@ -39,6 +39,9 @@
                    <DataGridTextColumn Header="作者" Binding="{Binding Author}"/>
                </DataGrid.Columns>
            </DataGrid>-->
+           <Image Source="{Binding MyBitmap^}" Width="120" Height="120"></Image>
+           <TextBlock Text="{Binding MyText^, FallbackValue='加载中...'}"></TextBlock>
+           <Button Content="显示图片" Command="{Binding ShowImageCommand}"></Button>
        </StackPanel>
        
        <!--<StackPanel>
@@ -48,7 +51,5 @@
                       Height="{Binding Path=Text , ElementName=MyTextBox}" Fill="Crimson"/>
            <TextBlock Text="{Binding Price, StringFormat='价格{0:C2}'}"></TextBlock>
            <TextBlock Text="{Binding CurrentDate, StringFormat='日期{0:yyyy-MM-dd}'}"/>
-           
-           
        </StackPanel>-->
 </Window>
