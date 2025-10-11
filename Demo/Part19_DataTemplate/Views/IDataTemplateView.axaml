@@ -1,0 +1,70 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:Part19_DataTemplate.Models"
+             xmlns:vm="clr-namespace:Part19_DataTemplate.ViewModels"
+             xmlns:dt="clr-namespace:Part19_DataTemplate.DataTemplates"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Part19_DataTemplate.Views.IDataTemplateView"
+             x:DataType="vm:DataTemplatesViewModel"
+             FontSize="30">
+    <UserControl.Resources>
+        <DataTemplate x:Key="TeacherDataTemplate" DataType="models:Teacher">
+            <UniformGrid HorizontalAlignment="Left" Columns="2">
+                <TextBlock Text="老师：" />
+                <TextBlock Text="{Binding Name}" />
+                <TextBlock Text="年龄：" />
+                <TextBlock Text="{Binding Age}" />
+                <TextBlock Text="教学：" />
+                <TextBlock Text="{Binding Subject}" />
+            </UniformGrid>
+        </DataTemplate>
+        <DataTemplate x:Key="StudentDataTemplate" DataType="models:Student">
+            <UniformGrid HorizontalAlignment="Left" Columns="2">
+                <TextBlock Text="学生：" />
+                <TextBlock Text="{Binding Name}" />
+                <TextBlock Text="年龄：" />
+                <TextBlock Text="{Binding Age}" />
+                <TextBlock Text="年级：" />
+                <TextBlock Text="{Binding Grade}" />
+            </UniformGrid>
+        </DataTemplate>
+        <DataTemplate x:Key="PersonDataTemplate" DataType="models:Person">
+            <UniformGrid HorizontalAlignment="Left" Columns="2">
+                <TextBlock Text="姓名：" />
+                <TextBlock Text="{Binding Name}" />
+                <TextBlock Text="年龄：" />
+                <TextBlock Text="{Binding Age}" />
+            </UniformGrid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <ItemsControl ItemsSource="{Binding People}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="3" RowSpacing="30" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <!--<dt:CommonDataTemplate
+                    TeacherDataTemplate="{StaticResource TeacherDataTemplate}"
+                    StudentDataTemplate="{StaticResource StudentDataTemplate}"
+                    PersonDataTemplate="{StaticResource PersonDataTemplate}" />-->
+
+                <!--<dt:DictionaryDataTemplate>
+                    <StaticResource x:Key="{x:Type models:Teacher}" ResourceKey="TeacherDataTemplate" />
+                    <StaticResource x:Key="{x:Type models:Student}" ResourceKey="StudentDataTemplate" />
+                    <StaticResource x:Key="{x:Type models:Person}" ResourceKey="PersonDataTemplate" />
+                </dt:DictionaryDataTemplate>-->
+
+                <dt:DataTemplateSelector>
+                    <StaticResource ResourceKey="TeacherDataTemplate" />
+                    <StaticResource ResourceKey="StudentDataTemplate" />
+                    <StaticResource ResourceKey="PersonDataTemplate" />
+                </dt:DataTemplateSelector>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>
