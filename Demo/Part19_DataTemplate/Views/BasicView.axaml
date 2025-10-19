@@ -1,0 +1,98 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Part19_DataTemplate.ViewModels"
+             xmlns:models="clr-namespace:Part19_DataTemplate.Models"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="750"
+             x:DataType="vm:BasicViewModel"
+             x:Class="Part19_DataTemplate.Views.BasicView"
+             FontSize="30">
+    <StackPanel Spacing="30">
+        <ContentControl Content="{Binding Person}" />
+
+        <ContentControl Content="{Binding Person}" HorizontalAlignment="Left">
+            <ContentControl.ContentTemplate>
+                <DataTemplate DataType="models:Person">
+                    <Border BorderThickness="5" BorderBrush="Red">
+                        <UniformGrid HorizontalAlignment="Left" Columns="2">
+                            <TextBlock Text="姓名：" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Text="年龄：" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Age}" />
+                        </UniformGrid>
+                    </Border>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+
+        <ItemsControl ItemsSource="{Binding Teachers}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" Spacing="30" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="models:Teacher">
+                    <UniformGrid HorizontalAlignment="Left" Columns="2">
+                        <TextBlock Text="老师：" />
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="年龄：" />
+                        <TextBlock Text="{Binding Age}" />
+                        <TextBlock Text="教学：" />
+                        <TextBlock Text="{Binding Subject}" />
+                    </UniformGrid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <ItemsControl ItemsSource="{Binding Students}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" Spacing="30" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="models:Student">
+                    <UniformGrid HorizontalAlignment="Left" Columns="2">
+                        <TextBlock Text="学生：" />
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="年龄：" />
+                        <TextBlock Text="{Binding Age}" />
+                        <TextBlock Text="年级：" />
+                        <TextBlock Text="{Binding Grade}" />
+                        <TextBlock Text="课程：" />
+                        <ItemsControl ItemsSource="{Binding Lessons}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" Spacing="10" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </UniformGrid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <TreeView ItemsSource="{Binding Students}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" Spacing="30" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <TreeView.ItemTemplate>
+                <TreeDataTemplate DataType="models:Student" ItemsSource="{Binding Lessons}">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="的课程" />
+                    </StackPanel>
+                </TreeDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </StackPanel>
+</UserControl>

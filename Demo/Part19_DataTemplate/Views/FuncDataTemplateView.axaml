@@ -1,0 +1,27 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Part19_DataTemplate.ViewModels"
+             xmlns:dt="clr-namespace:Part19_DataTemplate.DataTemplates"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Part19_DataTemplate.Views.FuncDataTemplateView"
+             x:DataType="vm:DataTemplatesViewModel"
+             FontSize="30">
+    <StackPanel>
+        <ItemsControl
+            ItemsSource="{Binding People}"
+            ItemTemplate="{x:Static dt:FuncDataTemplateProvider.CommonFuncDataTemplate}">
+            <!--<ItemsControl.DataTemplates>
+                <x:Static Member="dt:FuncDataTemplateProvider.StudentFuncDataTemplate" />
+                <x:Static Member="dt:FuncDataTemplateProvider.TeacherFuncDataTemplate" />
+                <x:Static Member="dt:FuncDataTemplateProvider.PersonFuncDataTemplate" />
+            </ItemsControl.DataTemplates>-->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="3" RowSpacing="30" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>
