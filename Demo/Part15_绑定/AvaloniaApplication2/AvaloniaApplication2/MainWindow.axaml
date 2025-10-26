@@ -7,7 +7,10 @@
         x:Class="AvaloniaApplication2.MainWindow"
         Title="AvaloniaApplication2"
         x:DataType="avaloniaApplication2:Bag">
-       <StackPanel>
+    <Window.Resources>
+        <avaloniaApplication2:DiscountConverter x:Key="DiscountConverter" />
+    </Window.Resources>
+    <StackPanel>
            <!--<ListBox ItemsSource="{Binding Books}">
                <ListBox.ItemTemplate>
                    <DataTemplate>
@@ -39,17 +42,36 @@
                    <DataGridTextColumn Header="作者" Binding="{Binding Author}"/>
                </DataGrid.Columns>
            </DataGrid>-->
-           <Image Source="{Binding MyBitmap^}" Width="120" Height="120"></Image>
+           <!--<Image Source="{Binding MyBitmap^}" Width="120" Height="120"></Image>
            <TextBlock Text="{Binding MyText^, FallbackValue='加载中...'}"></TextBlock>
-           <Button Content="显示图片" Command="{Binding ShowImageCommand}"></Button>
-       </StackPanel>
-       
-       <!--<StackPanel>
-           <TextBox x:Name="MyTextBox"></TextBox>
+           <Button Content="显示图片" Command="{Binding ShowImageCommand}"></Button>-->
+           
+           <!--<TextBox x:Name="MyTextBox"></TextBox>
            <TextBlock Text="{Binding Path=Text , ElementName=MyTextBox}"/>
            <Rectangle Width="{Binding Path=Text , ElementName=MyTextBox}" 
                       Height="{Binding Path=Text , ElementName=MyTextBox}" Fill="Crimson"/>
            <TextBlock Text="{Binding Price, StringFormat='价格{0:C2}'}"></TextBlock>
-           <TextBlock Text="{Binding CurrentDate, StringFormat='日期{0:yyyy-MM-dd}'}"/>
-       </StackPanel>-->
+           <TextBlock Text="{Binding CurrentDate, StringFormat='日期{0:yyyy-MM-dd}'}"/>-->
+           
+           <!--结算金额 = 商品价格 * 商品数量 * 折扣-->
+           <!--输入项-->
+           <TextBlock Text="商品价格"></TextBlock>
+           <TextBox x:Name="PriceTextBox"></TextBox>
+           <TextBlock Text="商品数量"></TextBlock>
+           <TextBox x:Name="NumberTextBox"></TextBox>
+           <TextBlock Text="折扣"></TextBlock>
+           <TextBox x:Name="DiscountRateTextBox"></TextBox>
+           
+           <!--结果-->
+           <TextBlock Text="结算金额"></TextBlock>
+           <TextBox>
+               <TextBox.Text>
+                   <MultiBinding Converter="{StaticResource DiscountConverter}">
+                       <Binding ElementName="PriceTextBox" Path="Text"></Binding>
+                       <Binding ElementName="NumberTextBox" Path="Text"></Binding>
+                       <Binding ElementName="DiscountRateTextBox" Path="Text"></Binding>
+                   </MultiBinding>
+               </TextBox.Text>
+           </TextBox>
+       </StackPanel>
 </Window>

@@ -69,12 +69,28 @@ public class Bag : ObservableObject
         }
     }
 
+    private string? _firstName;
+    private string? _lastName;
+
+    // 名
+    public string? FirstName
+    {
+        get => _firstName;
+        set => SetProperty(ref _firstName, value);  // SetProperty 自动触发 PropertyChanged
+    }
+
+    // 姓
+    public string? LastName
+    {
+        get => _lastName;
+        set => SetProperty(ref _lastName, value);
+    }
+    
     public Bag()
     {
         /*Books.Add("语文书");
         Books.Add("数学书");
         Books.Add("英语书");*/
-        
         Books.Add(new Book("语文书", "张三")
         {
             Children = new ObservableCollection<Book>(){ new Book("唐诗三百首", "王五") }
