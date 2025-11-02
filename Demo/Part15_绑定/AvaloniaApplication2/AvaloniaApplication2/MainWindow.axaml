@@ -55,15 +55,15 @@
            
            <!--结算金额 = 商品价格 * 商品数量 * 折扣-->
            <!--输入项-->
-           <TextBlock Text="商品价格"></TextBlock>
+           <!--<TextBlock Text="商品价格"></TextBlock>
            <TextBox x:Name="PriceTextBox"></TextBox>
            <TextBlock Text="商品数量"></TextBlock>
            <TextBox x:Name="NumberTextBox"></TextBox>
            <TextBlock Text="折扣"></TextBlock>
-           <TextBox x:Name="DiscountRateTextBox"></TextBox>
+           <TextBox x:Name="DiscountRateTextBox"></TextBox>-->
            
            <!--结果-->
-           <TextBlock Text="结算金额"></TextBlock>
+           <!--<TextBlock Text="结算金额"></TextBlock>
            <TextBox>
                <TextBox.Text>
                    <MultiBinding Converter="{StaticResource DiscountConverter}">
@@ -72,6 +72,48 @@
                        <Binding ElementName="DiscountRateTextBox" Path="Text"></Binding>
                    </MultiBinding>
                </TextBox.Text>
-           </TextBox>
+           </TextBox>-->
+           
+           <!-- 1. Default模式（默认模式，由目标属性决定）
+             TextBox.Text默认是TwoWay：UI修改会同步到源，源修改会同步到UI -->
+           <StackPanel Spacing="5">
+               <TextBlock Text="1. Default模式（TextBox默认TwoWay）" FontWeight="Bold"/>
+               <TextBox Text="{Binding UserName}" Watermark="输入用户名"/>
+               <!--模拟数据上下文中产生的数据变化-->
+               <Button Content="修改源的UserName" Click="OnChangeUserName"/>
+           </StackPanel>
+
+           <!-- 2. TwoWay模式（双向同步：源和UI互相影响） -->
+           <StackPanel Spacing="5">
+               <TextBlock Text="3. TwoWay模式（双向同步）" FontWeight="Bold"/>
+               <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" 
+                         Content="是否选中（修改复选框或点击按钮都会同步）"/>
+               <Button Content="切换IsSelected状态" Click="OnToggleIsSelected"/>
+           </StackPanel>
+           
+           <!-- 3. OneWay模式（源→目标：源修改同步到UI，UI修改不影响源） -->
+           <StackPanel Spacing="5">
+               <TextBlock Text="2. OneWay模式（源→目标）" FontWeight="Bold"/>
+               <TextBlock Text="{Binding Count, Mode=OneWay}" />
+               <Button Content="增加Count（源更新）" Click="OnIncreaseCount"/>
+               <TextBox Text="{Binding Count, Mode=OneWay}" Watermark="修改此输入框不会影响源"/>
+           </StackPanel>
+
+           <!-- 4. OneTime模式（仅初始化时同步：后续源修改不影响UI） -->
+           <StackPanel Spacing="5">
+               <TextBlock Text="4. OneTime模式（仅初始化同步）" FontWeight="Bold"/>
+               <TextBlock Text="{Binding InitialMessage, Mode=OneTime}" />
+               <Button Content="修改源的InitialMessage" Click="OnChangeInitialMessage"/>
+           </StackPanel>
+
+           <!-- 5. OneWayToSource模式（目标→源：UI修改同步到源，源修改不影响UI） -->
+           <StackPanel Spacing="5">
+               <TextBlock Text="5. OneWayToSource模式（目标→源）" FontWeight="Bold"/>
+               <TextBox Text="{Binding InputValue, Mode=OneWayToSource}" 
+                        Watermark="输入内容会同步到源"/>
+               <Button Content="显示源中的InputValue" Click="OnShowInputValue"/>
+               <TextBlock x:Name="InputValueDisplay" Text="源中的值将显示在这里"/>
+           </StackPanel>
+           
        </StackPanel>
 </Window>

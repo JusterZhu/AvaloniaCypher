@@ -86,6 +86,50 @@ public class Bag : ObservableObject
         set => SetProperty(ref _lastName, value);
     }
     
+    // 用于Default模式的属性
+    private string _userName = "初始用户名";
+    public string UserName
+    {
+        get => _userName;
+        set
+        {
+            _userName = value; 
+            OnPropertyChanged();
+        }
+    }
+
+    // 用于OneWay模式的属性
+    private int _count = 0;
+    public int Count
+    {
+        get => _count;
+        set { _count = value; OnPropertyChanged(); }
+    }
+
+    // 用于TwoWay模式的属性
+    private bool _isSelected = false;
+    public bool IsSelected
+    {
+        get => _isSelected;
+        set { _isSelected = value; OnPropertyChanged(); }
+    }
+
+    // 用于OneTime模式的属性
+    private string _initialMessage = "程序启动时的消息";
+    public string InitialMessage
+    {
+        get => _initialMessage;
+        set { _initialMessage = value; OnPropertyChanged(); }
+    }
+
+    // 用于OneWayToSource模式的属性
+    private string _inputValue = "787878";
+    public string InputValue
+    {
+        get => _inputValue;
+        set { _inputValue = value; OnPropertyChanged(); }
+    }
+    
     public Bag()
     {
         /*Books.Add("语文书");
