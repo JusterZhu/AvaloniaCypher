@@ -58,6 +58,14 @@ public class Bag : ObservableObject
     
     public ObservableCollection<Book> Books { get; set; } = new ObservableCollection<Book>();
 
+    private bool _isImportant = true;
+
+    public bool IsImportant
+    {
+        get => _isImportant;
+        set => SetProperty(ref _isImportant, value);
+    }
+    
     private Book _selectedBook;
 
     public Book SelectedBook

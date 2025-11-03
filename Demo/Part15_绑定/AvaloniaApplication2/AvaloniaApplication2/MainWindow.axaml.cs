@@ -1,6 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 
 namespace AvaloniaApplication2;
 
@@ -42,6 +43,6 @@ public partial class MainWindow : Window
     // 测试OneWayToSource模式：显示源中的InputValue
     private void OnShowInputValue(object? sender, RoutedEventArgs e)
     {
-        InputValueDisplay.Text = $"源中的值：{_viewModel.InputValue}";
+        //InputValueDisplay.Text = $"源中的值：{_viewModel.InputValue}";
     }
 }

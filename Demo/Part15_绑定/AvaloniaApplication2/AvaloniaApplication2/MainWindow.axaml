@@ -9,6 +9,7 @@
         x:DataType="avaloniaApplication2:Bag">
     <Window.Resources>
         <avaloniaApplication2:DiscountConverter x:Key="DiscountConverter" />
+        <avaloniaApplication2:FontWeightConverter x:Key="BoldConverter"/>
     </Window.Resources>
     <StackPanel>
            <!--<ListBox ItemsSource="{Binding Books}">
@@ -76,14 +77,14 @@
            
            <!-- 1. Default模式（默认模式，由目标属性决定）
              TextBox.Text默认是TwoWay：UI修改会同步到源，源修改会同步到UI -->
-           <StackPanel Spacing="5">
+           <!--<StackPanel Spacing="5">
                <TextBlock Text="1. Default模式（TextBox默认TwoWay）" FontWeight="Bold"/>
                <TextBox Text="{Binding UserName}" Watermark="输入用户名"/>
-               <!--模拟数据上下文中产生的数据变化-->
+               ~1~模拟数据上下文中产生的数据变化@1@
                <Button Content="修改源的UserName" Click="OnChangeUserName"/>
            </StackPanel>
 
-           <!-- 2. TwoWay模式（双向同步：源和UI互相影响） -->
+           ~1~ 2. TwoWay模式（双向同步：源和UI互相影响） @1@
            <StackPanel Spacing="5">
                <TextBlock Text="3. TwoWay模式（双向同步）" FontWeight="Bold"/>
                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" 
@@ -91,7 +92,7 @@
                <Button Content="切换IsSelected状态" Click="OnToggleIsSelected"/>
            </StackPanel>
            
-           <!-- 3. OneWay模式（源→目标：源修改同步到UI，UI修改不影响源） -->
+           ~1~ 3. OneWay模式（源→目标：源修改同步到UI，UI修改不影响源） @1@
            <StackPanel Spacing="5">
                <TextBlock Text="2. OneWay模式（源→目标）" FontWeight="Bold"/>
                <TextBlock Text="{Binding Count, Mode=OneWay}" />
@@ -99,21 +100,24 @@
                <TextBox Text="{Binding Count, Mode=OneWay}" Watermark="修改此输入框不会影响源"/>
            </StackPanel>
 
-           <!-- 4. OneTime模式（仅初始化时同步：后续源修改不影响UI） -->
+           ~1~ 4. OneTime模式（仅初始化时同步：后续源修改不影响UI） @1@
            <StackPanel Spacing="5">
                <TextBlock Text="4. OneTime模式（仅初始化同步）" FontWeight="Bold"/>
                <TextBlock Text="{Binding InitialMessage, Mode=OneTime}" />
                <Button Content="修改源的InitialMessage" Click="OnChangeInitialMessage"/>
            </StackPanel>
 
-           <!-- 5. OneWayToSource模式（目标→源：UI修改同步到源，源修改不影响UI） -->
+           ~1~ 5. OneWayToSource模式（目标→源：UI修改同步到源，源修改不影响UI） @1@
            <StackPanel Spacing="5">
                <TextBlock Text="5. OneWayToSource模式（目标→源）" FontWeight="Bold"/>
                <TextBox Text="{Binding InputValue, Mode=OneWayToSource}" 
                         Watermark="输入内容会同步到源"/>
                <Button Content="显示源中的InputValue" Click="OnShowInputValue"/>
                <TextBlock x:Name="InputValueDisplay" Text="源中的值将显示在这里"/>
-           </StackPanel>
-           
+           </StackPanel>-->
+           <TextBlock Text="重要标题" 
+                      FontWeight="{Binding IsImportant, 
+                      Converter={StaticResource BoldConverter}, Mode=TwoWay}"/>
+
        </StackPanel>
 </Window>
