@@ -115,9 +115,9 @@
                <Button Content="显示源中的InputValue" Click="OnShowInputValue"/>
                <TextBlock x:Name="InputValueDisplay" Text="源中的值将显示在这里"/>
            </StackPanel>-->
-           <TextBlock Text="重要标题" 
+           <!--<TextBlock Text="重要标题" 
                       FontWeight="{Binding IsImportant, 
-                      Converter={StaticResource BoldConverter}, Mode=TwoWay}"/>
-
+                      Converter={StaticResource BoldConverter}, Mode=TwoWay}"/>-->
+           <TextBox Text="{Binding Address, Mode=TwoWay}"/>
        </StackPanel>
 </Window>

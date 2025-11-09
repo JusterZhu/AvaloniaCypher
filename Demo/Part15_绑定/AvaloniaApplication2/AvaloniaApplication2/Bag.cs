@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Threading.Tasks;
 using Avalonia.Media.Imaging;
@@ -28,9 +29,32 @@ public class Book
     }
 }
 
-public class Bag : ObservableObject
+public class Bag : ValidateBindbleBase
 {
     //public ObservableCollection<string> Books { get; set; } = new ObservableCollection<string>();
+
+    private int _age;
+    
+    [Range(0, 200)]
+    public int Age
+    {
+        get => _age;
+        set
+        {
+            SetProperty(ref _age, value);
+            ValidateProperty(nameof(Age), value);
+        }
+    }
+
+    private string _address;
+
+    [Length(10,50)]
+    [AddressValidator]
+    public string Address
+    {
+        get => _address;
+        set => SetProperty(ref _address, value);
+    }
 
     public Task<string> MyText => GetTextAsync();
 
