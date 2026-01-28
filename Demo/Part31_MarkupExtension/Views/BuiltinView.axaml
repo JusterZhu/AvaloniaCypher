@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             xmlns:vm="clr-namespace:Part31_MarkupExtension.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="500"
+             x:Class="Part31_MarkupExtension.Views.BuiltinView"
+             x:DataType="vm:BuiltinViewModel">
+  <StackPanel Margin="8" Orientation="Vertical" Spacing="4"
+              HorizontalAlignment="Center" VerticalAlignment="Center">
+    <StackPanel.Resources>
+      <x:String x:Key="NameString">Avalonia Resource</x:String>
+    </StackPanel.Resources>
+
+    <TextBlock Text="{Binding Name}" />
+    <TextBlock Text="{Binding Path=Name}" />
+    <TextBlock Text="{Binding Name, Mode=TwoWay}" />
+
+    <TextBlock Text="{CompiledBinding Name}" />
+    <TextBlock Text="{ReflectionBinding Name}" />
+    <ContentControl Content="TemplateBinding">
+      <ContentControl.Template>
+        <ControlTemplate TargetType="ContentControl">
+          <Border BorderBrush="Gold" BorderThickness="1">
+            <ContentPresenter Content="{TemplateBinding Content}" />
+          </Border>
+        </ControlTemplate>
+      </ContentControl.Template>
+    </ContentControl>
+    <TextBlock Name="RelativeSource"
+               Text="{Binding RelativeSource={RelativeSource Self}, Path=Bounds.Width}" />
+    <TextBlock Text="{Binding ElementName=RelativeSource, Path=Bounds.Width}" />
+    <TextBlock Text="{Binding Source={ResolveByName RelativeSource}, DataType=Control, Path=Bounds.Width}" />
+
+    <TextBlock Text="{StaticResource NameString}" />
+    <TextBlock Text="{DynamicResource NameString}" />
+
+    <TextBlock Text="{OnPlatform Default=Default, Windows=Windows, macOS=macOS, Linux=Linux}" />
+    <TextBlock Text="{OnPlatform Default=Default, Windows=Windows, macOS=macOS, Linux=Linux, x:TypeArguments=x:String}" />
+    <TextBlock Width="{OnPlatform Default=20, Windows=30, macOS=40, Linux=50, x:TypeArguments=sys:Double}" Text="{Binding $self.Width}" />
+    <!-- <TextBlock Text="{OnPlatform Default=20, Windows=30, macOS=40, Linux=50, x:TypeArguments=sys:Double}" /> -->
+
+    <TextBlock Text="AppName">
+      <TextBlock.Styles>
+        <OnPlatform>
+          <OnPlatform.Default>
+            <Style Selector="TextBlock">
+              <Setter Property="Margin" Value="0" />
+              <Setter Property="Background" Value="Gold" />
+            </Style>
+          </OnPlatform.Default>
+          <OnPlatform.Windows>
+            <Style Selector="TextBlock">
+              <Setter Property="Margin" Value="0" />
+              <Setter Property="Background" Value="LightSkyBlue" />
+            </Style>
+          </OnPlatform.Windows>
+          <OnPlatform.macOS>
+            <Style Selector="TextBlock">
+              <Setter Property="Margin" Value="40,0,0,0" />
+              <Setter Property="Background" Value="Coral" />
+            </Style>
+          </OnPlatform.macOS>
+        </OnPlatform>
+      </TextBlock.Styles>
+    </TextBlock>
+    <TextBlock Text="{OnFormFactor Default=Default, Desktop=Desktop, Mobile=Mobile}" />
+
+    <StackPanel Orientation="{x:Static Orientation.Horizontal}" Spacing="4">
+      <CheckBox IsChecked="True" />
+      <CheckBox IsChecked="False" />
+      <CheckBox IsChecked="{x:True}" />
+      <CheckBox IsChecked="{x:False}" />
+      <CheckBox IsThreeState="True" IsChecked="{x:Null}" />
+    </StackPanel>
+
+    <TextBlock Tag="{x:Static sys:Math.PI}" Text="{Binding $self.Tag}" />
+    <TextBlock Tag="{x:Type ContentControl}" Text="{Binding $self.Tag}" />
+
+  </StackPanel>
+</UserControl>

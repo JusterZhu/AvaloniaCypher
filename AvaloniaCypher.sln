@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo\Part14_ControlTheme", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo\Part19_DataTemplate", "Demo\Part19_DataTemplate\Part19_DataTemplate.csproj", "{F11DD224-4ADE-4B58-9518-0F4BB727FB42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part31_MarkupExtension", "Demo\Part31_MarkupExtension\Part31_MarkupExtension.csproj", "{61946169-2877-4242-8480-D8A677F50760}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{F11DD224-4ADE-4B58-9518-0F4BB727FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F11DD224-4ADE-4B58-9518-0F4BB727FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F11DD224-4ADE-4B58-9518-0F4BB727FB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61946169-2877-4242-8480-D8A677F50760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61946169-2877-4242-8480-D8A677F50760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61946169-2877-4242-8480-D8A677F50760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61946169-2877-4242-8480-D8A677F50760}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
