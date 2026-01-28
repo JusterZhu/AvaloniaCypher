@@ -1,0 +1,108 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:icon="clr-namespace:FluentIcons.Avalonia;assembly=FluentIcons.Avalonia"
+             xmlns:iconMarkup="clr-namespace:FluentIcons.Avalonia.Markup;assembly=FluentIcons.Avalonia"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             xmlns:vm="clr-namespace:Part31_MarkupExtension.ViewModels"
+             xmlns:me="clr-namespace:Part31_MarkupExtension.MarkupExtensions"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="600"
+             x:Class="Part31_MarkupExtension.Views.CustomView"
+             x:DataType="vm:CustomViewModel">
+  <ScrollViewer>
+    <StackPanel Margin="8" Orientation="Vertical" Spacing="4"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+
+      <StackPanel.Resources>
+        <me:ThicknessDoubleConverter x:Key="ThicknessDoubleConverter" />
+      </StackPanel.Resources>
+
+      <TextBlock Text="{me:Simple}" />
+      <TextBlock Text="{me:SimpleExtension}" />
+
+      <TextBlock Text="{me:DuckType}" />
+
+      <TextBlock Width="{me:ValueType}" Text="ValueType" />
+      <TextBlock Width="{me:BoxedObject}" Text="BoxedObject" />
+
+      <!-- <TextBlock Text="{me:ValueType}" /> -->
+      <!-- <TextBlock Text="{me:BoxedObject}" /> -->
+
+      <TextBlock Text="{me:MultiReturn}" />
+
+      <TextBlock Text="{me:FormatText}" />
+      <TextBlock Text="{me:FormatText Hello}" />
+      <TextBlock Text="{me:FormatText Text=Hello}" />
+      <TextBlock Text="{me:FormatText Hello, Lower}" />
+      <TextBlock Text="{me:FormatText Hello, Upper}" />
+      <TextBlock Text="{me:FormatText HeLlO, Title}" />
+      <TextBlock Text="{me:FormatText Text=HeLlO, Case=Title}" />
+
+      <TextBox Name="TextUserInput" />
+      <ComboBox Name="CaseSelector"
+                SelectedValueBinding="{Binding DataType=ComboBoxItem, Path=Content}"
+                SelectedIndex="0">
+        <ComboBoxItem Content="{x:Static me:StringCase.Normal}" />
+        <ComboBoxItem Content="{x:Static me:StringCase.Upper}" />
+        <ComboBoxItem Content="{x:Static me:StringCase.Lower}" />
+        <ComboBoxItem Content="{x:Static me:StringCase.Title}" />
+      </ComboBox>
+      <TextBlock Text="{me:FormatTextBinding {Binding #TextUserInput.Text}, {Binding #CaseSelector.SelectedValue}}" />
+
+      <Button Width="60">
+        <icon:SymbolIcon Symbol="Home" />
+      </Button>
+      <Button Width="60" Content="{iconMarkup:SymbolIcon Symbol=Home}" />
+
+      <ContentControl Width="60"
+                      Name="ContentControlSource"
+                      Content="{me:Button Content={iconMarkup:SymbolIcon Symbol=Home}}" />
+      <ContentControl Width="180"
+                      Content="{me:ButtonBinding Content={Binding #ContentControlSource.Name}}" />
+      <ContentControl Width="180"
+                      Content="{me:ButtonStyled Content={Binding #ContentControlSource.Width}}" />
+      <ContentControl Width="180"
+                      Content="{me:ButtonDerived Content=Hello}" />
+
+      <TextBlock Tag="{x:Static sys:DateTime.Now}" Text="{Binding $self.Tag}" />
+      <TextBlock Tag="{me:CurrentTime}" Text="{Binding $self.Tag}" />
+
+      <Slider Name="ThicknessSlider" Minimum="0" Maximum="20" />
+      <Border Height="60" Width="100"
+              BorderBrush="Red"
+              BorderThickness="{Binding #ThicknessSlider.Value, Converter={StaticResource ThicknessDoubleConverter}}">
+        <TextBlock Text="Resource" />
+      </Border>
+      <Border Height="60" Width="100"
+              BorderBrush="Red"
+              BorderThickness="{Binding #ThicknessSlider.Value, Converter={me:ThicknessDoubleConverter Sides='Left,Top,Bottom'}}">
+        <TextBlock Text="MarkupExtension" />
+      </Border>
+
+      <TextBlock Text="{me:ControlInfo Control=CaseSelector}" />
+
+      <TextBlock Tag="{me:ServiceInspector}" />
+
+      <!-- <ContentControl> -->
+      <!--   <ContentControl.Template> -->
+      <!--     <ControlTemplate TargetType="ContentControl"> -->
+      <!--       <ContentPresenter Tag="{me:ServiceInspector}" /> -->
+      <!--     </ControlTemplate> -->
+      <!--   </ContentControl.Template> -->
+      <!-- </ContentControl> -->
+
+      <TextBlock Text="{me:Architecture Default=Default, X64=X64, X86=X86, Arm64=Arm64, Arm=Arm, Wasm=Wasm}" />
+
+      <!-- <TextBlock Text="{me:Generic Value=Text, x:TypeArguments=x:String}" /> -->
+      <!-- <TextBlock Width="{me:Generic Value=Text, x:TypeArguments='x:String,x:Double'}" Text="{Binding $self.Width}" /> -->
+
+      <TextBlock Text="{me:CaptureString Hello CaptureString}" />
+      <TextBlock Text="{me:CaptureString A\,B}" />
+      <TextBlock Text="{me:CaptureString 'A,B'}" />
+      <TextBlock Text="{me:CaptureString \&apos;\&quot;&amp;&gt;&lt;&#48;}" />
+      <TextBlock Text="{me:CaptureString {}{0}}" />
+
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>
