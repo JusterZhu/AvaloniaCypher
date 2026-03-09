@@ -1,0 +1,10 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LearnAura3D_2.MainWindow"
+        xmlns:a="https://sunce.tech/aura3d"
+        Title="LearnAura3D_2">
+        <a:Aura3DView SceneInitialized="Aura3DView_OnSceneInitialized" SceneUpdated="Aura3DView_OnSceneUpdated"></a:Aura3DView>
+</Window>
